@@ -7,3 +7,5 @@ Please install the packages at the top of the code before running it.
 
 The senate.txt contains a sample of all recorded senator trades up until 2021-June-16. It will be downloaded by the actual code file. 
 
+It may take a long time to analyze all the trades from 2012- current day. This is due to the inefficiency of accessing all the stock information for all the trades. 
+
