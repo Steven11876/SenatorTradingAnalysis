@@ -194,9 +194,7 @@ def hypothetical_growth(adapted_list):
         month = beforedate[:2]
         day = beforedate[3:5]
         year = beforedate[6:10]
-        print (month)
-        print (day)
-        print (year)
+
         yearspassed = float(365* (int(today.strftime("%Y"))-int(year)) + 30 * (int(today.strftime("%m"))-int(month)) + int(today.strftime("%d"))- int(day))/365
 
         tickerSymbol = a["ticker"]
@@ -205,7 +203,6 @@ def hypothetical_growth(adapted_list):
 
         info = tickerData.info
         if str(info) == "{'logo_url': ''}":
-            print ("hey")
             if a["amount"] == "$1,001 - $15,000":
                 total_value -= 8000
             if a["amount"] == "$15,001 - $50,000":
@@ -259,13 +256,9 @@ def hypothetical_growth(adapted_list):
             continue
 
         currentprice = unscientize(str(tickerDf["Open"][-1]))
-        try:
-            growthrate= math.log(currentprice/ priorprice)/yearspassed*100
-            growthrate = round(growthrate, 3)
-        except:
-            print (currentprice)
-            print (priorprice)
-            print (yearspassed)
+
+        growthrate= math.log(currentprice/ priorprice)/yearspassed*100
+        growthrate = round(growthrate, 3)
 
         if a["amount"] == "$1,001 - $15,000":
             adjustedgrowthrate = growthrate * 8000
@@ -293,8 +286,6 @@ def hypothetical_growth(adapted_list):
             total_growth_rate += adjustedgrowthrate
         else:
             total_growth_rate -= adjustedgrowthrate
-        print (total_growth_rate)
-        print (total_value)
 
     return total_growth_rate/total_value
 
@@ -337,9 +328,6 @@ if __name__ == '__main__':
     sorteddata = filter_by_senator(sorteddata)
     SandP(year, month, day)
     b = hypothetical_growth(sorteddata)
-    print ("The senator's stocks would've grown by ")
-    print (b)
-    print (" in the same time period.")
-
+    print ("The senator's stocks would've grown by " + str(round(b, 3)) + " percent in the same time period.")
 
 
