@@ -326,8 +326,8 @@ if __name__ == '__main__':
     sorteddata = filter_by_date(senatordata)
     sorteddata = filter_by_availability(sorteddata)
     sorteddata = filter_by_senator(sorteddata)
-    SandP(year, month, day)
     b = hypothetical_growth(sorteddata)
+    SandP(year, month, day)
     print ("The senator's stocks would've grown by " + str(round(b, 3)) + " percent in the same time period.")
 
 
