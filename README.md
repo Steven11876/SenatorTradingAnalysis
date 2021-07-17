@@ -5,3 +5,5 @@ Some limitations of my code are that it cannot read the handwritten trades submi
 
 Please install the packages at the top of the code before running it. 
 
+The senate.txt contains a sample of all recorded senator trades up until 2021-June-16. It will be downloaded by the actual code file. 
+
